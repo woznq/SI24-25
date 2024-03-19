@@ -1,5 +1,5 @@
 
-W mojej opinii wszystkie z poniższych zadań wymagają w pewien sposób inteligencji od człowieka.
+W mojej opinii *wszystkie* z poniższych zadań wymagają *w pewien sposób* inteligencji od człowieka.
 Zadaniami, które wymagają jej najmniej nazwałbym
 - wypełnianie deklaracji PIT - jest to odtwórcze zadanie i wymaga głównie znajomości prawa podatkowego oraz wiedzy o swoich  przychodach
 - odpowiadanie na proste pytanie w języku naturalnym - większość odpowiedzi na tego typu pytania jest błyskawiczna i nie wymaga myślenia
