@@ -142,5 +142,24 @@ szwagier(X,Y) :-
 ```
 # G
 ```
+rodzic(a,x).
+rodzic(b,x).
+rodzic(a,z).
+rodzic(b,y).
+rodzic(z,y).
 
+
+dziadek(X,Y) :-
+    rodzic(X,A),
+    dziecko(Y,A).
+    
+
+
+dziwna_relacja(X,Y) :-
+    rodzic(A,Y),
+    rodzic(A,X),
+    rodzic(B,X),
+    dziadek(B,Y),
+    A \= B,
+    X \= Y.
 ```
