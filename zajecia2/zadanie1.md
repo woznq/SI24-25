@@ -120,4 +120,27 @@ rodzenstwo_przyrodnie(X,Y) :-
     X \= Y.
 ```
  # F
- 
+ ```
+ rodzic(a,y).
+rodzic(a,b).
+rodzic(b,z).
+rodzic(x,z).
+
+
+rodzenstwo_przyrodnie(X,Y) :-
+    rodzic(C,X),
+    rodzic(C,Y),
+    X \= Y.
+
+malzonek(X,Y) :-
+    dziecko(A,X),
+	dziecko(A,Y).
+
+szwagier(X,Y) :-
+    rodzenstwo_przyrodnie(Y,A),
+    malzonek(X,A).
+```
+# G
+```
+
+```
