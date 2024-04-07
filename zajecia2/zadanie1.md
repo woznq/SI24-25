@@ -83,4 +83,41 @@ wnuk(X,Y) :-
 ma_wspolnego_wnuka(X,Y) :-
     wnuk(A,X),
     wnuk(A,Y).
-    ```
+```
+# D
+```
+rodzic(y,a).
+rodzic(b,a).
+rodzic(b,x).
+
+
+
+rodzenstwo_przyrodnie(X,Y):-
+    rodzic(A,X),
+    rodzic(A,Y),
+    not((rodzic(B,X), rodzic(B,Y), B \= A)),
+    X \= Y.
+
+macocha_lub_ojczym(X,Y) :-
+    rodzic(X,A),
+    rodzenstwo_przyrodnie(A,Y),
+    not(rodzic(X,Y)).
+ ```
+# E
+```
+rodzic(a,x).
+rodzic(a,y).
+rodzic(b,x).
+rodzic(c,y).
+
+
+dziecko(X,Y) :-
+    rodzic(Y,X).
+
+rodzenstwo_przyrodnie(X,Y) :-
+    rodzic(C,X),
+    rodzic(C,Y),
+    X \= Y.
+```
+ # F
+ 
