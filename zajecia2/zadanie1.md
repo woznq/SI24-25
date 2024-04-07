@@ -12,3 +12,4 @@ Jest to rodzeństwo przyrodnie. Mają jednego wspólnego rodzica.
 - ##  F
 X jest szwagrem/szwagierką dla Y
 - ##  G
+X jest dzieckiem dziadka/babci Y oraz ojca/matki Y
