@@ -163,3 +163,202 @@ dziwna_relacja(X,Y) :-
     A \= B,
     X \= Y.
 ```
+# Zad 2
+```
+mezczyzna(jan).
+mezczyzna(henryk).
+mezczyzna(slawek).
+mezczyzna(konrad).
+mezczyzna(antoni).
+mezczyzna(jakub).
+mezczyzna(dawid).
+mezczyzna(marcin).
+
+osoba(jan).
+osoba(henryk).
+osoba(slawek).
+osoba(konrad).
+osoba(antoni).
+osoba(jakub).
+osoba(krystyna).
+osoba(katarzyna).
+osoba(iwona).
+osoba(wiktoria).
+osoba(zofia).
+osoba(jozefa).
+osoba(dawid).
+osoba(marcin).
+osoba(anna).
+osoba(lena).
+
+
+
+rodzic(zofia,jan).
+rodzic(antoni,henryk).
+rodzic(henryk,slawek).
+rodzic(henryk,iwona).
+rodzic(jozefa,slawek).
+rodzic(jozefa,iwona).
+rodzic(jan,katarzyna).
+rodzic(jan,konrad).
+rodzic(konrad,lena).
+rodzic(anna,lena).
+rodzic(krystyna,katarzyna).
+rodzic(krystyna,konrad).
+rodzic(katarzyna,jakub).
+rodzic(katarzyna,wiktoria).
+rodzic(slawek,jakub).
+rodzic(slawek,wiktoria).
+rodzic(dawid,marcin).
+rodzic(katarzyna,marcin).
+
+
+
+kobieta(X) :-
+    osoba(X),
+    \+ mezczyzna(X).
+    
+
+
+ojciec(X,Y) :-
+    mezczyzna(X),
+    rodzic(X,Y),
+    osoba(X),
+    osoba(Y).
+
+
+matka(X,Y) :-
+    kobieta(X),
+    rodzic(X,Y),
+	osoba(X),
+    osoba(Y).
+ 
+
+corka(X,Y) :-
+    kobieta(X),
+    rodzic(Y,X),
+    osoba(X),
+    osoba(Y).
+
+
+
+brat_rodzony(X,Y) :-
+    mezczyzna(X),
+    rodzic(A,X),
+    rodzic(A,Y),
+    rodzic(B,X),
+    rodzic(B,Y),
+    osoba(X),
+    osoba(Y),
+    osoba(A),
+    osoba(B),
+    A \= B,
+    X \= Y.
+
+
+brat_przyrodni(X, Y) :-
+    mezczyzna(X),
+    rodzic(A, X),   
+    rodzic(A, Y),   
+    rodzic(B, X),   
+    rodzic(C, Y),   
+    osoba(X),      
+    osoba(Y),      
+    osoba(A),      
+    osoba(B),      
+    osoba(C),      
+    A \= B,        
+    A \= C,
+    B \= C,
+    X \= Y.
+
+ 
+
+
+
+kuzyn(X,Y) :-
+    mezczyzna(X),
+    rodzic(A,X),
+    rodzic(B,Y),
+    rodzic(C,A),
+    rodzic(C,B),
+    A \= B,
+    X \= Y,
+    osoba(X),      
+    osoba(Y),      
+    osoba(A),      
+    osoba(B),      
+    osoba(C),      
+    A \= C.  
+
+
+dziadek_od_strony_ojca(X,Y):-
+    mezczyzna(X),
+    mezczyzna(A),
+    rodzic(X,A),
+    rodzic(A,Y),
+    osoba(X),
+    osoba(Y),
+    osoba(A),
+    X \= Y.
+    
+
+dziadek_od_strony_matki(X,Y):-
+    mezczyzna(X),
+    kobieta(A),
+    rodzic(X,A),
+    rodzic(A,Y),
+    osoba(X),
+    osoba(Y),
+	osoba(A).
+    
+
+dziadek(X,Y):-
+    mezczyzna(X),
+    rodzic(X,A),
+    rodzic(A,Y),
+    osoba(A),
+    osoba(Y),
+    osoba(X).
+    
+    
+
+babcia(X,Y):-
+    kobieta(X),
+    rodzic(X,A),
+    rodzic(A,Y),
+    osoba(A),
+    osoba(Y),
+    osoba(X).
+    
+
+wnuczka(X,Y):-
+    kobieta(X),
+    (dziadek(Y,X);
+    babcia(Y,X)),
+    osoba(Y),
+    osoba(X).
+    
+
+przodek_do2pokolenia_wstecz(X,Y) :-
+    osoba(X),
+    osoba(Y),
+    (babcia(X,Y);
+    dziadek(X,Y);
+    ojciec(X,Y);
+    matka(X,Y)),
+    X \= Y.
+
+    
+
+
+przodek_do3pokolenia_wstecz(X,Y) :-
+    osoba(X),
+    osoba(Y),
+    (przodek_do2pokolenia_wstecz(X,A),
+    (ojciec(A,Y);
+    matka(A,Y));
+    ojciec(X,Y);
+    matka(X,Y)),
+    X \= Y.
+```
