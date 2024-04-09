@@ -29,11 +29,11 @@ b) Jeżeli Markus próbował dokonać zamachu na Cezara to nie mógł być wobec
 c) w CNF
 1.  Człowiek(Markus)
 2.  Pompejańczyk(Markus)
-3.  ¬Pompejańczyk(x) ∨ Rzymianin(x)
+3.  ¬Pompejańczyk(x1) ∨ Rzymianin(x1)
 4.  Władca(Cezar)
-5.  ¬Rzymianin(x) ∨ Lojalny(x, Cezar) ∨ Nienawidzi(x, Cezar)
-6.  Lojalny(x, f(x)) dla pewnej funkcji f
-7.  ¬Człowiek(x) ∨ ¬Władca(y) ∨ Lojalny(x, y) ∨ PróbowałZamachu(x, y)
+5.  ¬Rzymianin(x1) ∨ Lojalny(x1, Cezar) ∨ Nienawidzi(x1, Cezar)
+6.  Lojalny(x1, f(x1)) dla pewnej funkcji f
+7.  ¬Człowiek(x1) ∨ ¬Władca(x2) ∨ Lojalny(x1, x2) ∨ PróbowałZamachu(x1, x2)
 8.  PróbowałZamachu(Markus, Cezar)
 
 # Zadanie 2
@@ -54,21 +54,23 @@ Predykaty to:
 
 
 
-1.  ∀y(Pożywienie(y) → Lubi(Jan, y))
+1.  ∀y(Pożywienie(x1) → Lubi(Jan, x1))
 2.  Pożywienie(Jabłka)
 3.  Pożywienie(Kurczak)
-4.  ∀x ∀y((Je(x, y) ∧ Żyje(x)) → Pożywienie(y))
+4.  Je(x1, x2) ∧ Żyje(x1) → Pożywienie(x2)
 5.  Je(Adam, Orzeszki) ∧ Żyje(Adam)
-6.  ∀y(Je(Adam, y) → Je(Basia, y))
+6.  Je(Adam, x2) → Je(Basia, x2)
 
 b) CNF
 
-1.  ¬Pożywienie(y) ∨ Lubi(Jan, y)
+1.  ¬Pożywienie(x1) ∨ Lubi(Jan, x1)
 2.  Pożywienie(Jabłka)
 3.  Pożywienie(Kurczak)
-4.  ¬Je(x, y) ∨ ¬Żyje(x) ∨ Pożywienie(y)
-5.  Je(Adam, Orzeszki) ∧ Żyje(Adam)
-6.  ¬Je(Adam, y) ∨ Je(Basia, y)
+4.  ¬Je(x1, x2) ∨ ¬Żyje(x1) ∨ Pożywienie(x2)
+5.  Je(Adam, Orzeszki)
+6.  Żyje(Adam)
+7.  ¬Je(Adam, x2) ∨ Je(Basia, x2)
+8.  ¬lubi(Jan, orzeszki)
 
 c)
 Trzeba dodać założenie, że orzeszki są pożywieniem, a wiedząc że Jan lubi każde pożywienie dowiedziemy, że lubi też orzeszki.
